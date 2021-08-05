@@ -65,6 +65,8 @@
 "network.in" = "Оролт";
 "network.out" = "Гаралт";
 "network.no_activity" = "Идэвхигүй";
+"network.port.auto" = "Auto-detect";
+"network.port.select" = "Port";
 
 // MARK: Menu
 "menu.summary" = "Summary";
@@ -135,6 +137,7 @@
 "language.ar" = "العربية";
 "language.en" = "English";
 "language.zh-Hans" = "简体中文";
+"language.zh-Hant" = "繁體中文";
 "language.de" = "Deutsch";
 "language.ru" = "Русский";
 "language.es" = "Español";
@@ -148,6 +151,10 @@
 "language.se" = "Svenska";
 "language.cs" = "Čeština";
 "language.it" = "Italiano";
+"language.my" = "မြန်မာဘာသာ";
+"language.hu" = "Magyar";
+"language.th" = "ไทย";
+"language.tr" = "Türkçe";
 
 // MARK: General UI
 "ui.app" = "Апп";

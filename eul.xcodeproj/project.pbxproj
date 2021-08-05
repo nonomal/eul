@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -348,6 +348,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		07580066265EA20F00D8ACB6 /* my */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = my; path = my.lproj/Localizable.strings; sourceTree = "<group>"; };
+		153727D22659346C006D94B3 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		62F2125825BBF5B700642EE8 /* TopStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopStore.swift; sourceTree = "<group>"; };
 		6C02715E25BD40EA006C54E6 /* SystemProfiler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemProfiler.swift; sourceTree = "<group>"; };
 		6C02716225BD55C4006C54E6 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -481,6 +483,8 @@
 		6CB260AF250DF1A900328DAA /* BatteryIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryIconView.swift; sourceTree = "<group>"; };
 		6CB26F7824E8310900E809FE /* SectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionView.swift; sourceTree = "<group>"; };
 		6CB3D26025D6A858008C6627 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		6CBF97AB26711A59003C2F2B /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/Localizable.strings; sourceTree = "<group>"; };
+		6CBF97AC26711A60003C2F2B /* th */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6CC0798B250CD793000D7DAC /* PreferenceGeneralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceGeneralView.swift; sourceTree = "<group>"; };
 		6CC1EBB625769B1F00BC05CA /* FanData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FanData.swift; sourceTree = "<group>"; };
 		6CC1EBB925769B4400BC05CA /* TemperatureData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureData.swift; sourceTree = "<group>"; };
@@ -507,6 +511,7 @@
 		6CDEF07B25D69E8100B4C913 /* SelfUpdate.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SelfUpdate.entitlements; sourceTree = "<group>"; };
 		6CE33C7C252601BB00831857 /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		6CE33C7E25260E3D00831857 /* PreferenceRefreshRateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceRefreshRateView.swift; sourceTree = "<group>"; };
+		6CEE85AD26BADC24005D81AF /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6CEF48A1255C33CE002E4D73 /* FramePreferenceKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FramePreferenceKey.swift; sourceTree = "<group>"; };
 		6CEF48A5255C366A002E4D73 /* SizePreferenceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizePreferenceKey.swift; sourceTree = "<group>"; };
 		6CEF771124DD94C8007C3640 /* BatteryStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryStore.swift; sourceTree = "<group>"; };
@@ -1223,6 +1228,11 @@
 				uk,
 				cs,
 				it,
+				"zh-Hant",
+				my,
+				hu,
+				th,
+				tr,
 			);
 			mainGroup = 6C5F8532249FACE000CF0EF8;
 			packageReferences = (
@@ -1320,6 +1330,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		6C9667DA250E3DA200E51ABB /* SwiftFormat */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -1334,7 +1345,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftformat >/dev/null; then\n  swiftformat .\nelse\n  echo \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n";
+			shellScript = "cd BuildTools\nSDKROOT=macosx\n#swift package update #Uncomment this line temporarily to update the version used to the latest matching your BuildTools/Package.swift file\nswift run -c release swiftformat \"$SRCROOT\"\n";
 		};
 		6CC0798D250CEE96000D7DAC /* Copy LaunchAtLogin helper */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1613,6 +1624,11 @@
 				9CA22A43256ED0140065FC1A /* uk */,
 				A385DBC325C0FF6300AF7654 /* cs */,
 				6C8731BD25CC41F100170CF8 /* it */,
+				153727D22659346C006D94B3 /* zh-Hant */,
+				07580066265EA20F00D8ACB6 /* my */,
+				6CBF97AB26711A59003C2F2B /* hu */,
+				6CBF97AC26711A60003C2F2B /* th */,
+				6CEE85AD26BADC24005D81AF /* tr */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -1643,7 +1659,7 @@
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 7;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = M8G2RFZVFV;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1657,7 +1673,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MARKETING_VERSION = 1.0.3;
+				MARKETING_VERSION = 1.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gaosun.eul.SharedLibrary;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1674,7 +1690,7 @@
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 7;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = M8G2RFZVFV;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1688,7 +1704,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MARKETING_VERSION = 1.0.3;
+				MARKETING_VERSION = 1.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gaosun.eul.SharedLibrary;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1706,7 +1722,7 @@
 				CODE_SIGN_ENTITLEMENTS = MemoryWidget/MemoryWidget.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 44;
+				CURRENT_PROJECT_VERSION = 52;
 				DEVELOPMENT_TEAM = M8G2RFZVFV;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = MemoryWidget/Info.plist;
@@ -1716,7 +1732,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.5.16;
+				MARKETING_VERSION = 1.6.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gaosun.eul.MemoryWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1732,7 +1748,7 @@
 				CODE_SIGN_ENTITLEMENTS = MemoryWidget/MemoryWidget.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 44;
+				CURRENT_PROJECT_VERSION = 52;
 				DEVELOPMENT_TEAM = M8G2RFZVFV;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = MemoryWidget/Info.plist;
@@ -1742,7 +1758,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.5.16;
+				MARKETING_VERSION = 1.6.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gaosun.eul.MemoryWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1758,7 +1774,7 @@
 				CODE_SIGN_ENTITLEMENTS = NetworkWidget/NetworkWidget.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 44;
+				CURRENT_PROJECT_VERSION = 52;
 				DEVELOPMENT_TEAM = M8G2RFZVFV;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = NetworkWidget/Info.plist;
@@ -1768,7 +1784,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.5.16;
+				MARKETING_VERSION = 1.6.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gaosun.eul.NetworkWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1784,7 +1800,7 @@
 				CODE_SIGN_ENTITLEMENTS = NetworkWidget/NetworkWidget.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 44;
+				CURRENT_PROJECT_VERSION = 52;
 				DEVELOPMENT_TEAM = M8G2RFZVFV;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = NetworkWidget/Info.plist;
@@ -1794,7 +1810,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.5.16;
+				MARKETING_VERSION = 1.6.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gaosun.eul.NetworkWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1929,7 +1945,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 44;
+				CURRENT_PROJECT_VERSION = 52;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = M8G2RFZVFV;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1941,7 +1957,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MARKETING_VERSION = 1.5.16;
+				MARKETING_VERSION = 1.6.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gaosun.eul;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
@@ -1960,7 +1976,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 44;
+				CURRENT_PROJECT_VERSION = 52;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = M8G2RFZVFV;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1972,7 +1988,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MARKETING_VERSION = 1.5.16;
+				MARKETING_VERSION = 1.6.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gaosun.eul;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
@@ -1988,7 +2004,7 @@
 				CODE_SIGN_ENTITLEMENTS = BatteryWidget/BatteryWidget.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 44;
+				CURRENT_PROJECT_VERSION = 52;
 				DEVELOPMENT_TEAM = M8G2RFZVFV;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = BatteryWidget/Info.plist;
@@ -1998,7 +2014,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.5.16;
+				MARKETING_VERSION = 1.6.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gaosun.eul.BatteryWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -2014,7 +2030,7 @@
 				CODE_SIGN_ENTITLEMENTS = BatteryWidget/BatteryWidget.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 44;
+				CURRENT_PROJECT_VERSION = 52;
 				DEVELOPMENT_TEAM = M8G2RFZVFV;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = BatteryWidget/Info.plist;
@@ -2024,7 +2040,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.5.16;
+				MARKETING_VERSION = 1.6.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gaosun.eul.BatteryWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -2040,7 +2056,7 @@
 				CODE_SIGN_ENTITLEMENTS = CpuWidget/CpuWidget.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 44;
+				CURRENT_PROJECT_VERSION = 52;
 				DEVELOPMENT_TEAM = M8G2RFZVFV;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = CpuWidget/Info.plist;
@@ -2050,7 +2066,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.5.16;
+				MARKETING_VERSION = 1.6.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gaosun.eul.CpuWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -2066,7 +2082,7 @@
 				CODE_SIGN_ENTITLEMENTS = CpuWidget/CpuWidget.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 44;
+				CURRENT_PROJECT_VERSION = 52;
 				DEVELOPMENT_TEAM = M8G2RFZVFV;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = CpuWidget/Info.plist;
@@ -2076,7 +2092,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.5.16;
+				MARKETING_VERSION = 1.6.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gaosun.eul.CpuWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

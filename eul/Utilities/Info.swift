@@ -99,19 +99,92 @@ enum Info {
         }
     }
 
-    struct Network {
-        var interface: String
+    struct NetworkUsage {
         var inBytes: UInt64
         var outBytes: UInt64
+    }
 
-        init() {
-            interface = shell("route get 0.0.0.0 | grep interface | awk '{print $2}'")?
-                .trimmingCharacters(in: .whitespacesAndNewlines) ?? "en0"
-            inBytes = 0
-            outBytes = 0
+    struct NetworkPort: Identifiable {
+        var port: String?
+        var device: String
+
+        var id: String {
+            device
+        }
+
+        var description: String {
+            guard let port = port else {
+                return device
+            }
+            return "\(port) (\(device))"
+        }
+    }
+
+    struct InterfaceStatus {
+        var name: String
+        var status: String?
+    }
+
+    static func findPort(_ string: String) -> NetworkPort? {
+        guard string.hasPrefix("("), string.hasSuffix(")") else {
+            return nil
+        }
+
+        let trimmed = String(string.dropFirst().dropLast())
+
+        guard let matched = trimmed.firstMatch("Device: ([^,]+)")?.range(at: 1), let deviceRange = Range(matched, in: trimmed) else {
+            return nil
+        }
+
+        var port: String?
+        let device = String(trimmed[deviceRange])
+        if let matched = trimmed.firstMatch("Port: ([^,]+)")?.range(at: 1), let portRange = Range(matched, in: trimmed) {
+            port = String(trimmed[portRange])
+        }
+
+        return NetworkPort(port: port, device: device)
+    }
+
+    static func getActiveInterfaces() -> [String] {
+        shell("ifconfig")?.split(separator: "\n").map { String($0) }.reduce([InterfaceStatus]()) {
+            // new interface
+            if !$1.hasPrefix("\t") {
+                guard let colonIndex = $1.firstIndex(of: ":") else {
+                    return $0
+                }
+                return $0.appending(InterfaceStatus(name: String($1[..<colonIndex])))
+            }
+
+            let splitted = $1.split(separator: ":").map { $0.trimmingCharacters(in: CharacterSet(charactersIn: " \t")) }
+
+            guard splitted.count == 2, splitted[0] == "status", let lastInterface = $0.last else {
+                return $0
+            }
+
+            return $0.dropLast().appending(InterfaceStatus(name: lastInterface.name, status: splitted[1]))
+        }.compactMap {
+            $0.status == "active" ? $0.name : nil
+        } ?? []
+    }
+
+    static func getNetworkUsage(forDevice: String?, _ onData: @escaping (NetworkUsage, [NetworkPort], NetworkPort?) -> Void) {
+        // TO-DO: use Combine
+        shellAsync("networksetup -listnetworkserviceorder") {
+            let services = $0?.split(separator: "\n").map(String.init).compactMap(Info.findPort) ?? []
+            let activeInterfaces = Info.getActiveInterfaces()
+            let currentActivePort = services.first(where: { activeInterfaces.contains($0.device) })
+
+            Print("network services order", services)
+            Print("network active interfaces", activeInterfaces)
+            Print("network current active interfaces", currentActivePort ?? "N/A")
+
+            var inBytes: UInt64?
+            var outBytes: UInt64?
+
+            let device = forDevice ?? currentActivePort?.device ?? "en0"
 
             if
-                let rows = shell("netstat -bI \(interface)")?.split(separator: "\n").map({ String($0) }),
+                let rows = shell("netstat -bI \(device)")?.split(separator: "\n").map({ String($0) }),
                 rows.count > 1
             {
                 let headers = rows[0].splittedByWhitespace
@@ -124,6 +197,10 @@ enum Info {
                 if let raw = String.getValue(of: "obytes", in: values, of: headers), let bytes = UInt64(raw) {
                     outBytes = bytes
                 }
+            }
+
+            DispatchQueue.main.async {
+                onData(NetworkUsage(inBytes: inBytes ?? 0, outBytes: outBytes ?? 0), services, currentActivePort)
             }
         }
     }

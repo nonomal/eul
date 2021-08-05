@@ -82,6 +82,16 @@ Note:
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/stosumarte"><img src="https://avatars.githubusercontent.com/u/64950825?v=4?s=48" width="48px;" alt=""/><br /><sub><b>stosumarte</b></sub></a><br /><a href="#translation-stosumarte" title="Translation">🌍</a></td>
+    <td align="center"><a href="https://github.com/gnehs"><img src="https://avatars.githubusercontent.com/u/16719720?v=4?s=48" width="48px;" alt=""/><br /><sub><b>gnehs</b></sub></a><br /><a href="#translation-gnehs" title="Translation">🌍</a></td>
+    <td align="center"><a href="https://github.com/Animenosekai"><img src="https://avatars.githubusercontent.com/u/40539549?v=4?s=48" width="48px;" alt=""/><br /><sub><b>Animenosekai</b></sub></a><br /><a href="#translation-Animenosekai" title="Translation">🌍</a></td>
+    <td align="center"><a href="https://github.com/soewaiyanmyowin"><img src="https://avatars.githubusercontent.com/u/38293630?v=4?s=48" width="48px;" alt=""/><br /><sub><b>Soe Wai Yan Myo Win</b></sub></a><br /><a href="#translation-soewaiyanmyowin" title="Translation">🌍</a></td>
+    <td align="center"><a href="http://www.studio83.cz/"><img src="https://avatars.githubusercontent.com/u/9982805?v=4?s=48" width="48px;" alt=""/><br /><sub><b>Vojtěch Kaizr</b></sub></a><br /><a href="#translation-wojtishek" title="Translation">🌍</a></td>
+    <td align="center"><a href="https://github.com/thewqer"><img src="https://avatars.githubusercontent.com/u/64782240?v=4?s=48" width="48px;" alt=""/><br /><sub><b>wqer</b></sub></a><br /><a href="#translation-thewqer" title="Translation">🌍</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/sn0wmem0ry"><img src="https://avatars.githubusercontent.com/u/84455611?v=4?s=48" width="48px;" alt=""/><br /><sub><b>sn0wmem0ry</b></sub></a><br /><a href="#translation-sn0wmem0ry" title="Translation">🌍</a></td>
+    <td align="center"><a href="https://github.com/daimajia"><img src="https://avatars.githubusercontent.com/u/2503423?v=4?s=48" width="48px;" alt=""/><br /><sub><b>代码家</b></sub></a><br /><a href="https://github.com/gao-sun/eul/commits?author=daimajia" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/bitigchi"><img src="https://avatars.githubusercontent.com/u/2769571?v=4?s=48" width="48px;" alt=""/><br /><sub><b>Emir Sarı</b></sub></a><br /><a href="#translation-bitigchi" title="Translation">🌍</a></td>
   </tr>
 </table>
 
@@ -92,18 +102,14 @@ Note:
 
 ## Language Support
 
-- 简体中文
-- English
-- Arabic (credit [@40uf411](https://github.com/40uf411))
-- Deutsch (credit [@akeschmidi](https://github.com/akeschmidi) [@rfuehrer](https://github.com/rfuehrer) [@J-rg](https://github.com/J-rg))
-- Русский (credit [@Nikolay](https://github.com/JiLiZART))
-- Español (credit [@JesusM](https://github.com/JesusM) [@kant](https://github.com/kant))
-- Português (credit [@nebeker](https://github.com/nebeker) [@jorgeclaro](https://github.com/jorgeclaro))
-- Монгол (credit [@Zorig](https://github.com/Zorig) [@AndyH0ng](https://github.com/AndyH0ng))
-- 한국어 (credit [@AndyH0ng](https://github.com/AndyH0ng) [@sboh1214](https://github.com/sboh1214))
-- 日本語 (credit [@treastrain](https://github.com/treastrain))
-- Français (credit [@baptistecdr](https://github.com/baptistecdr))
-- Українська (credit [@nrudnyk](https://github.com/nrudnyk))
-- Svenska (credit [@Tekrific](https://github.com/Tekrific))
-- Čeština (credit [@DMNerd](https://github.com/DMNerd))
-- Italiano (credit [@stosumarte](https://github.com/stosumarte))
+```swift
+let languages = [
+  "简体中文", "English", "Arabic",
+  "Deutsch", "Русский", "Español",
+  "Português", "Монгол", "한국어",
+  "日本語", "Français", "Українська",
+  "Svenska", "Čeština", "Italiano",
+  "繁體中文", "မြန်မာဘာသာ", "Magyar",
+  "ไทย", "Türkçe"
+];
+```
